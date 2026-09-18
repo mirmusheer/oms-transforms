@@ -1,0 +1,28 @@
+name: 'oms_transforms'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  oms_transforms:
+    customer_rev:
+      customerrevenue:
+        +schema: SERVING
+        +tags: ['daily']
+    emp_reporting:
+      emp_weekly_sales:
+        +schema: SERVING
+        +tags: ['weekly']
